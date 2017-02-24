@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+org.jboss.tools.openshift.Connection=https\://buriosca-ortus@console.preview.openshift.com
+org.jboss.tools.openshift.DeployProject=ortus
+org.jboss.tools.openshift.PodPath=
+org.jboss.tools.openshift.Service=burios-ortus@ortus
+org.jboss.tools.openshift.SourcePath=${workspace_loc\:/ortus}

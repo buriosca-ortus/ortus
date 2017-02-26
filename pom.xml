@@ -30,7 +30,7 @@
               <artifactId>maven-war-plugin</artifactId>
               <version>2.6</version>
               <configuration>
-                  <warName>${project.artifactId}</warName>
+                  <warName>ROOT</warName>
               </configuration>
           </plugin>
       </plugins>

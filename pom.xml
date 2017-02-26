@@ -1,16 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
   <modelVersion>4.0.0</modelVersion>
-  <groupId>openshift</groupId>
-  <artifactId>getting-started-tomcat</artifactId>
+  <groupId>cz.burios</groupId>
+  <artifactId>ortus</artifactId>
   <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>getting-started-tomcat Maven Webapp</name>
+  <version>1.0</version>
+  <name>ortus</name>
   <url>http://maven.apache.org</url>
 
-
   <dependencies>
-      <!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
       <dependency>
           <groupId>javax.servlet</groupId>
           <artifactId>javax.servlet-api</artifactId>
@@ -19,13 +18,13 @@
 
   </dependencies>
   <build>
-    <finalName>getting-started-tomcat</finalName>
+    <finalName>ortus</finalName>
       <plugins>
           <plugin>
               <artifactId>maven-war-plugin</artifactId>
               <version>2.6</version>
               <configuration>
-                  <warName>ROOT</warName>
+                  <warName>${project.artifactId}</warName>
               </configuration>
           </plugin>
       </plugins>

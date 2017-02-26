@@ -2,4 +2,4 @@
  * @author Burios.CZ
  *
  */
-package cz.burios.coach;
+package cz.burios.ortus;

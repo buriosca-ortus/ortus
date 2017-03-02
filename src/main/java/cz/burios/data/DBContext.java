@@ -1,4 +1,4 @@
-package cz.burios.ortus;
+package cz.burios.data;
 
 public class DBContext {
 

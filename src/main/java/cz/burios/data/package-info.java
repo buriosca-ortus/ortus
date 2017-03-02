@@ -2,4 +2,4 @@
  * @author Burios.CZ
  *
  */
-package cz.burios.ortus;
+package cz.burios.data;

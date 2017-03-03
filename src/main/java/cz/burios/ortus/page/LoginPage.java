@@ -9,7 +9,7 @@ import cz.burios.web.page.WPage;
 import cz.burios.wt.html.Body;
 import cz.burios.wt.html.Head;
 
-@WebServlet("/LoginPage")
+//@WebServlet("/LoginPage")
 public class LoginPage extends WPage {
 
 	private static final long serialVersionUID = -7263780952632415880L;
@@ -28,7 +28,7 @@ public class LoginPage extends WPage {
 			style("text/css").text("html, body { width: 100%; height: 100%; margin: 0px; padding: 0px; overflow: hidden; font: 12px Verdana, sans-serif; }"),
 			
 			javaScript(WApplication.getBaseUrl()+"/js/jquery-1.11.3.js"),
-			javaScript(WApplication.getBaseUrl()+"/js/gears/gears.all.min.js")
+			javaScript(WApplication.getBaseUrl()+"/js/nestui/nestui.all.js")
 		);
 		return head;
 	}

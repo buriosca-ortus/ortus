@@ -59,7 +59,8 @@ public class MainPage extends WPage {
 					div().css("logo-image"),
 					div().text(""+WApplication.getTitle()).css("logo-title")
 				),
-				div().data("options", "region:'center',href:'"+WApplication.getBaseUrl()+"/LoginPage'")
+				div().data("options", "region:'center', href:'"+WApplication.getBaseUrl()+"/pages/PageBuilder?id=PG-LOGIG'")
+				//div().data("options", "region:'center', href:'"+WApplication.getBaseUrl()+"/LoginPage'")
 				//div().data("options", "region:'east'").style("width:400px; padding: 15px;")
 			)
 		);

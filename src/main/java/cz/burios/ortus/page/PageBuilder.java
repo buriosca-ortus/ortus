@@ -13,14 +13,16 @@ import cz.burios.web.page.WPage;
 import cz.burios.wt.Generator;
 import cz.burios.wt.html.Document;
 
-@WebServlet("/ui/PageBuilde")
+@WebServlet("/pages/PageBuilder")
 public class PageBuilder extends HttpServlet {
+	
+	private static final long serialVersionUID = 5445994115811576811L;
 	
 	private java.util.Map<String, String> factories = new HashMap<String, String>();  
 	
 	public PageBuilder() {
 		factories.put("PG-LOGIG", "cz.burios.ortus.page.LoginPage");
-		factories.put("PG-P-DESKTOP", "");
+		factories.put("PG-DESKTOP", "");
 	}
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {

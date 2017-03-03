@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import org.h2.jdbcx.JdbcConnectionPool;
+import org.h2.jdbcx.JdbcDataSource;
+import org.h2.tools.Server;
+
 import cz.burios.data.DBContext;
 
 //@WebServlet("/StartUp")
@@ -25,13 +29,28 @@ public class StartUp extends HttpServlet {
 		super();
 	}
 
+	@SuppressWarnings("static-access")
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("StartUp.init(config)");
 		Connection conn = null;
 		try {
+			//String driver = "org.h2.Driver";
+			//Class.forName(driver);
+			JdbcDataSource ds = new JdbcDataSource();
+			ds.setURL("jdbc:h2:tcp://localhost:9092/~/ortus;INIT=RUNSCRIPT FROM 'classpath:import.sql';");
+			ds.setUser("sa");
+			ds.setPassword("sa");
+			Context ctx = new InitialContext();
+			ctx.bind("jdbc/OrtusDS", ds);
+			/*
+			JdbcConnectionPool cp = JdbcConnectionPool.create("jdbc:h2:tcp://localhost:9092/~/ortus;DB_CLOSE_ON_EXIT=FALSE;", "sa", "sa");
+			conn = cp.getConnection();
+			conn.close(); 
+			cp.dispose();
+			*/
+			/*
 			Context initContext = new InitialContext();
 			DataSource ds = null;
-			boolean ok = false;
 			try {
 				Context envContext = (Context) initContext.lookup("java:jboss/datasources");
 				ds = (DataSource) envContext.lookup("OrtusDS");
@@ -45,6 +64,8 @@ public class StartUp extends HttpServlet {
 					exc.printStackTrace();
 				}
 			}
+			*/			
+			boolean ok = true;
 			System.out.println("StartUp.init().ds: " + ds);
 			if (ok) {
 				DBContext.instance().initialize(ds);
@@ -54,6 +75,7 @@ public class StartUp extends HttpServlet {
 					
 				}
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

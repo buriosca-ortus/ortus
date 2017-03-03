@@ -19,10 +19,10 @@ public class LoginPage extends WPage {
 	}
 
 	@Override
-	protected Head buildHead(Head head) {
+	public Head buildHead(Head head) {
 		head = super.buildHead(head);
 		head.add(
-			link().rel("stylesheet").type("text/css").href(WApplication.getBaseUrl()+"/js/gears/themes/metro-gray/gears.css"),
+			link().rel("stylesheet").type("text/css").href(WApplication.getBaseUrl()+"/js/nestui/themes/metro-blue/nestui.css"),
 			link().rel("stylesheet").type("text/css").href(WApplication.getBaseUrl()+"/pages/css/" + this.getClass().getSimpleName() + ".css"),
 			
 			style("text/css").text("html, body { width: 100%; height: 100%; margin: 0px; padding: 0px; overflow: hidden; font: 12px Verdana, sans-serif; }"),
@@ -34,7 +34,7 @@ public class LoginPage extends WPage {
 	}
 	
 	@Override
-	protected Body buildBody(Body body) {
+	public Body buildBody(Body body) {
 		body.add(
 			div().css("nestui-layout").data("options", "fit:true").style("width:100%;height:100%;").add(
 				div().data("options", "region:'center'"),

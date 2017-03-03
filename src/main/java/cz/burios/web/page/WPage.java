@@ -20,7 +20,7 @@ public class WPage extends WPageAbstract {
 	}
 
 	@Override
-	protected Document buildPage() throws ServletException, IOException {
+	public Document buildPage() throws ServletException, IOException {
 		//System.out.println("WPage.buildPage()");
 		Document document = new Document();
 		buildHead(document.head());
@@ -28,7 +28,7 @@ public class WPage extends WPageAbstract {
 		return document;
 	}
 
-	protected Head buildHead(Head head) {
+	public Head buildHead(Head head) {
 		head.add(
 			title().text("" + WApplication.getTitle()),
 			meta("text/html; charset=UTF-8").httpEquiv("Content-Type"),
@@ -37,7 +37,7 @@ public class WPage extends WPageAbstract {
 		return head;
 	}
 	
-	protected Body buildBody(Body body) {
+	public Body buildBody(Body body) {
 		return body;
 	}
 

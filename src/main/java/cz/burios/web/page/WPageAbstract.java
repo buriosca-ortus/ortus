@@ -74,16 +74,16 @@ public abstract class WPageAbstract extends HttpServlet {
 		}
 	}
 	
-	protected abstract Document buildPage() throws ServletException, IOException;
+	public abstract Document buildPage() throws ServletException, IOException;
 
-	protected String refactor(String text, Map<String, String> words) {
+	public String refactor(String text, Map<String, String> words) {
 		for (Map.Entry<String, String> e : words.entrySet()) {
 			text = text.replaceAll("\\$\\("+e.getKey()+"\\)", e.getValue());
 		}
 		return text;
 	}
 
-	protected Map<String, Object> request2params(HttpServletRequest request) {
+	public Map<String, Object> request2params(HttpServletRequest request) {
 		Map<String, Object> params = new HashMap<String, Object>(); 
 		Enumeration<String> e = request.getParameterNames();
 		while (e.hasMoreElements()) {

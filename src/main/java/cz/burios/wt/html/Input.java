@@ -12,6 +12,7 @@ public class Input extends Tag<Input> {
 	
 	public Input() {
 		super("input");
+		this.inst = this;
 	}
 	
 	public Input accept(String value) {

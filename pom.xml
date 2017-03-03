@@ -35,7 +35,6 @@
 		</dependency>		
 	</dependencies>
 	
-	<!-- Tomcat -->
 	<build>
 		<finalName>ortus</finalName>
 		<plugins>
@@ -48,27 +47,4 @@
 			</plugin>
 		</plugins>
 	</build> 	
-	
-	<!--  
-	<profiles>
-		<profile>
-			<id>openshift</id>
-			<build>
-				<finalName>ortus</finalName>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-war-plugin</artifactId>
-						<version>2.6</version>
-						<configuration>
-							<failOnMissingWebXml>false</failOnMissingWebXml>
-							<outputDirectory>target</outputDirectory>
-							<warName>${project.artifactId}</warName>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-	-->
 </project>

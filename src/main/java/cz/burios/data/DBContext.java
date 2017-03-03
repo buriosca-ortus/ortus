@@ -20,8 +20,13 @@ public class DBContext {
 		DBContext.ds = ds;
 	}
 	
-	public static Connection getConnection() throws Exception {
-		return DBContext.ds.getConnection(); 
+	public static Connection getConnection() {
+		try {
+			return DBContext.ds.getConnection(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public static DataSource ds() {

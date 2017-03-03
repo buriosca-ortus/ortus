@@ -1,6 +1,8 @@
 package cz.burios.ortus;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.Statement;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -11,6 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+
+import cz.burios.data.DBContext;
 
 //@WebServlet("/StartUp")
 public class StartUp extends HttpServlet {
@@ -23,6 +27,7 @@ public class StartUp extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		System.out.println("StartUp.init(config)");
+		Connection conn = null;
 		try {
 			Context initContext = new InitialContext();
 			DataSource ds = null;
@@ -42,10 +47,17 @@ public class StartUp extends HttpServlet {
 			}
 			System.out.println("StartUp.init().ds: " + ds);
 			if (ok) {
-				
+				DBContext.instance().initialize(ds);
+				conn = DBContext.instance().getConnection();
+				System.out.println("StartUp.init().conn: " + conn);
+				try (Statement stmt = conn.createStatement()) {
+					
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			if (conn != null) try { conn.close(); } catch (Exception ecx) {}
 		}
 		/*
 		*/

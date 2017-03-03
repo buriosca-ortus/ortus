@@ -1,11 +1,16 @@
 package cz.burios.ortus;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cz.burios.data.DBContext;
 
 @WebServlet("/MainPage")
 public class MainPage extends HttpServlet {
@@ -21,7 +26,19 @@ public class MainPage extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		PrintWriter out = response.getWriter();
+		try {
+			response.setContentType("text/html");
+			response.setCharacterEncoding("UTF-8");
+			
+			out.append("Served at: ").append(request.getContextPath());
+			out.append("<br>");
+			try (Connection conn = DBContext.getConnection()) {
+				out.append("SQL Connection: ").append("" + conn);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

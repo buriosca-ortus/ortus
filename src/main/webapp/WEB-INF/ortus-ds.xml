@@ -7,7 +7,10 @@
     <datasource jndi-name="java:jboss/datasources/OrtusDS"
         pool-name="ortus" enabled="true"
         use-java-context="true">
+        <!--  
         <connection-url>jdbc:h2:mem:ortus;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
+        -->
+        <connection-url>jdbc:h2:~/ortus;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
         <driver>h2</driver>
         <security>
             <user-name>sa</user-name>
